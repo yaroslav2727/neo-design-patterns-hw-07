@@ -14,6 +14,11 @@ export class Section implements DocNode {
   }
 
   render(): string {
-    // TODO: Implement the render method
+    const header = this.renderer.renderHeader(this.level, this.title);
+    const childrenContent = this.children
+      .map((child) => child.render())
+      .join("");
+    const content = header + childrenContent;
+    return content;
   }
 }
